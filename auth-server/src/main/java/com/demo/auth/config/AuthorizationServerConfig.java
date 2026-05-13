@@ -92,8 +92,8 @@ public class AuthorizationServerConfig {
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
         RegisteredClient mcpClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("mcp-client")
-                .clientSecret("{noop}mcp-client-secret")
+                .clientId("mcp-server")
+                .clientSecret("{noop}mcp-server-secret")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_POST)
                 .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)

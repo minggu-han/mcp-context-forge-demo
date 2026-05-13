@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: mcp-client
+
+deepseek:
+  baseUrl: https://api.deepseek.com
+  apiKey: sk-1060782c6b7941d6b9ee812d521e6938
+  modelName: deepseek-v4-pro
+
+qwen:
+  apiKey: sk-847dff9fa063420399a68d5a2cd1bdc2
+  modelName: qwen3.6-plus
+
+ollama:
+  baseUrl: http://localhost:11434
+  modelName: qwen3.5:4b

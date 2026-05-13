@@ -14,8 +14,8 @@
 
     <modules>
         <module>auth-server</module>
-        <module>mcp-client</module>
         <module>mcp-server</module>
+        <module>mcp-client</module>
     </modules>
 
     <properties>
