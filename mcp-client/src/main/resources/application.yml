@@ -12,7 +12,7 @@ deepseek:
 
 qwen:
   apiKey: sk-847dff9fa063420399a68d5a2cd1bdc2
-  modelName: qwen3.6-plus
+  modelName: qwen-plus
 
 ollama:
   baseUrl: http://localhost:11434
