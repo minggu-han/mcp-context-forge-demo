@@ -1,4 +1,4 @@
-package com.demo.cmp.client.agent.config.mcp;
+package com.demo.cmp.client.config.mcp;
 
 import dev.langchain4j.mcp.McpToolProvider;
 import dev.langchain4j.mcp.client.DefaultMcpClient;

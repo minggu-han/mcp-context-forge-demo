@@ -1,4 +1,4 @@
-package com.demo.cmp.client.agent.config;
+package com.demo.cmp.client.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -6,9 +6,13 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "qwen")
-public class QwenProperties {
+@ConfigurationProperties(prefix = "deepseek")
+public class DeepseekProperties {
+
+    private String baseUrl;
+
     private String apiKey;
 
     private String modelName;
+
 }

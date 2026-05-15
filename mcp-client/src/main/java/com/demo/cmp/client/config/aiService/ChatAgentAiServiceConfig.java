@@ -1,13 +1,10 @@
-package com.demo.cmp.client.agent.config.aiService;
+package com.demo.cmp.client.config.aiService;
 
 import com.demo.cmp.client.agent.ChatAgent;
-import com.demo.cmp.client.agent.config.DeepseekProperties;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.model.chat.ChatModel;
-import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.tool.ToolProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

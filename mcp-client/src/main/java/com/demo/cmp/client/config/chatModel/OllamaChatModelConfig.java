@@ -1,6 +1,6 @@
-package com.demo.cmp.client.agent.config.chatModel;
+package com.demo.cmp.client.config.chatModel;
 
-import com.demo.cmp.client.agent.config.OllamaProperties;
+import com.demo.cmp.client.config.OllamaProperties;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import org.springframework.beans.factory.annotation.Autowired;
