@@ -1,5 +1,6 @@
 package com.demo.cmp.client.config.mcp;
 
+import dev.langchain4j.agent.tool.ToolSpecification;
 import dev.langchain4j.mcp.McpToolProvider;
 import dev.langchain4j.mcp.client.DefaultMcpClient;
 import dev.langchain4j.mcp.client.McpClient;
@@ -24,8 +25,22 @@ public class ChatAgentToolProviderConfig {
 
     @Bean("chatAgentToolProvider")
     public ToolProvider chatAgentToolProvider() {
+//        StreamableHttpMcpTransport transport = new StreamableHttpMcpTransport.Builder()
+//                .url(STREAMABLE_HTTP_URL)
+//                .customHeaders(Map.of(HEADER_KEY, HEADER_VALUE))
+//                .timeout(Duration.ofSeconds(60))
+//                .logRequests(true)
+//                .logResponses(true)
+//                .build();
+/*
+{
+    "userNo":"60067710",
+    "userMessage": "帮我发个邮件，主旨 智能水表会议  发给snowhan@msi.com 抄送给angdy@msi.com  内容就说今天下午5点开会"
+}
+ */
+        //restful接口转tool测试
         StreamableHttpMcpTransport transport = new StreamableHttpMcpTransport.Builder()
-                .url(STREAMABLE_HTTP_URL)
+                .url("http://localhost:8080/servers/6a2cb6a06c354a5198ca1b730bdf27a6/mcp")
                 .customHeaders(Map.of(HEADER_KEY, HEADER_VALUE))
                 .timeout(Duration.ofSeconds(60))
                 .logRequests(true)
@@ -35,6 +50,11 @@ public class ChatAgentToolProviderConfig {
         McpClient mcpClient = new DefaultMcpClient.Builder()
                 .transport(transport)
                 .build();
+
+        List<ToolSpecification> toolSpecifications = mcpClient.listTools();
+        for (ToolSpecification toolSpecification : toolSpecifications) {
+            System.out.println(toolSpecification);
+        }
 
         return McpToolProvider.builder()
                 .mcpClients(List.of(mcpClient))
