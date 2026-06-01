@@ -1,0 +1,22 @@
+spring:
+  data:
+    # redis 配置
+    redis:
+      # 地址
+      host: localhost
+      # 端口，默认为6379
+      port: 6379
+      # 数据库索引
+      database: 3
+      # 密码
+      password: YourStrongRedisPassword123
+      # 连接超时时间
+      timeout: 10s
+ollama:
+  baseUrl: http://localhost:11434
+  modelName: qwen3.5:9b
+mcp:
+#  jwt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGV4YW1wbGUuY29tIiwiaWF0IjoxNzgwMzE0Mzc3LCJpc3MiOiJtY3BnYXRld2F5IiwiYXVkIjoibWNwZ2F0ZXdheS1hcGkiLCJqdGkiOiJiNzRkYmIzOC0xN2YzLTRhMzYtOTZkYS02MjhlZGZlNWNhN2IiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImV4cCI6MTc4MDkxOTE3N30.aW_hScf97E6R45YXnggPZv2yoOqgZNQdqDhLwL7JMko
+#  url: http://localhost:8080/servers/6f46759860ec49d3a2ddba35b098803b/mcp
+  jwt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGV4YW1wbGUuY29tIiwiaWF0IjoxNzgwMzE4NzU5LCJpc3MiOiJtY3BnYXRld2F5IiwiYXVkIjoibWNwZ2F0ZXdheS1hcGkiLCJqdGkiOiJkYmY0YTk4ZS1jYzkzLTRmZDEtYjlkNC1mMDIwZDRhMjMwMDEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImV4cCI6MTc4MDkyMzU1OX0._P1CJUuocTDV_czamvRwWL8fkEdVCTDVPj1e4_mvcxM
+  url: http://localhost:4444/servers/6b9e688ccc6941c8846eda375151f1fe/mcp
