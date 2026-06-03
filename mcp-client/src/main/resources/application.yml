@@ -13,8 +13,8 @@ ai:
       type: redis
 
 deepseek:
-  baseUrl: https://api.deepseek.com
-  apiKey: sk-1060782c6b7941d6b9ee812d521e6938
+  baseUrl: https://api.deepseek.com/v1
+  apiKey: sk-485e5c3ba56c461891c4230b8068bbe8
   modelName: deepseek-v4-pro
 
 qwen:

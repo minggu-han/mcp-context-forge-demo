@@ -16,10 +16,10 @@ public class ChatAgentAiServiceConfig {
     public ChatAgent chatAgent(/*ChatModel ollamaChatModel,*/
                                ToolProviderFactory toolProviderFactory,
                                ChatMemoryProvider chatAgentChatMemoryProvider,
-                               ChatModel qwenChatModel) {
+                               ChatModel deepseekChatModel) {
         return AiServices.builder(ChatAgent.class)
 //                .chatModel(ollamaChatModel)
-                .chatModel(qwenChatModel)
+                .chatModel(deepseekChatModel)
                 .toolProviders(toolProviderFactory.getToolProviderList())
                 .chatMemoryProvider(chatAgentChatMemoryProvider)
                 .build();

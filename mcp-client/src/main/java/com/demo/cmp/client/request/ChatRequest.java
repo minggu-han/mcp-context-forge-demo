@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class ChatRequest {
     private String userMessage;
-    private String userNo;
+    private String userNo = "60067710";
 }
