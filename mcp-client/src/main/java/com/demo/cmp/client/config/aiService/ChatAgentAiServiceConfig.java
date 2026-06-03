@@ -1,6 +1,7 @@
 package com.demo.cmp.client.config.aiService;
 
 import com.demo.cmp.client.agent.ChatAgent;
+import com.demo.cmp.client.factory.ToolProviderFactory;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.service.AiServices;
@@ -13,13 +14,13 @@ public class ChatAgentAiServiceConfig {
 
     @Bean
     public ChatAgent chatAgent(/*ChatModel ollamaChatModel,*/
-                               ToolProvider chatAgentToolProvider,
+                               ToolProviderFactory toolProviderFactory,
                                ChatMemoryProvider chatAgentChatMemoryProvider,
                                ChatModel qwenChatModel) {
         return AiServices.builder(ChatAgent.class)
 //                .chatModel(ollamaChatModel)
                 .chatModel(qwenChatModel)
-                .toolProvider(chatAgentToolProvider)
+                .toolProviders(toolProviderFactory.getToolProviderList())
                 .chatMemoryProvider(chatAgentChatMemoryProvider)
                 .build();
     }

@@ -10,52 +10,52 @@ import java.time.Instant;
 @Service
 public class DemoTools {
 
-    @Tool(name = "calculator", description = "Evaluate a mathematical expression and return the result")
-    public String calculator(@ToolParam(description = "Mathematical expression, e.g. '2 + 3 * 5', '(10 + 5) / 2'") String expression) {
-        try {
-            double result = evaluateExpression(expression);
-            return "Result of " + expression + " = " + result;
-        } catch (Exception e) {
-            return "Error: " + e.getMessage();
-        }
-    }
-
-    @Tool(name = "getCurrentTime", description = "Get current server time")
-    public String getCurrentTime(@ToolParam(description = "Timezone, e.g. 'UTC', 'Asia/Shanghai', 'America/New_York'") String timezone) {
-        String tz = (timezone != null && !timezone.isBlank()) ? timezone : "UTC";
-        return "Current server time (UTC): " + Instant.now() + "\nRequested timezone: " + tz;
-    }
-
-    @Tool(name = "greet", description = "Send a personalized greeting")
-    public String greet(
-            @ToolParam(description = "Name of the person to greet") String name,
-            @ToolParam(description = "Language: 'en', 'zh', 'ja', 'fr', 'de'") String language) {
-        String lang = (language != null && !language.isBlank()) ? language : "en";
-        return switch (lang) {
-            case "zh" -> "你好, " + name + "! 很高兴见到你!";
-            case "ja" -> "こんにちは, " + name + "! お会いできて光栄です!";
-            case "fr" -> "Bonjour, " + name + "! Ravi de vous rencontrer!";
-            case "de" -> "Hallo, " + name + "! Freut mich, Sie kennenzulernen!";
-            default -> "Hello, " + name + "! Great to meet you!";
-        };
-    }
-
-    @Tool(name = "getServerInfo", description = "Get information about this MCP server")
-    public String getServerInfo() {
-        return """
-            Demo MCP Server v1.0.0
-            ========================
-            Server Name: demo-mcp-server
-            Description: A demo MCP server with useful tools for mcp-context-forge
-            Transport: Streamable HTTP
-            Available Tools:
-              - calculator: Evaluate mathematical expressions
-              - getCurrentTime: Get current server time
-              - greet: Send a greeting to someone
-              - getWeather: Get weather for a city
-              - getServerInfo: Get server information
-            """;
-    }
+//    @Tool(name = "calculator", description = "Evaluate a mathematical expression and return the result")
+//    public String calculator(@ToolParam(description = "Mathematical expression, e.g. '2 + 3 * 5', '(10 + 5) / 2'") String expression) {
+//        try {
+//            double result = evaluateExpression(expression);
+//            return "Result of " + expression + " = " + result;
+//        } catch (Exception e) {
+//            return "Error: " + e.getMessage();
+//        }
+//    }
+//
+//    @Tool(name = "getCurrentTime", description = "Get current server time")
+//    public String getCurrentTime(@ToolParam(description = "Timezone, e.g. 'UTC', 'Asia/Shanghai', 'America/New_York'") String timezone) {
+//        String tz = (timezone != null && !timezone.isBlank()) ? timezone : "UTC";
+//        return "Current server time (UTC): " + Instant.now() + "\nRequested timezone: " + tz;
+//    }
+//
+//    @Tool(name = "greet", description = "Send a personalized greeting")
+//    public String greet(
+//            @ToolParam(description = "Name of the person to greet") String name,
+//            @ToolParam(description = "Language: 'en', 'zh', 'ja', 'fr', 'de'") String language) {
+//        String lang = (language != null && !language.isBlank()) ? language : "en";
+//        return switch (lang) {
+//            case "zh" -> "你好, " + name + "! 很高兴见到你!";
+//            case "ja" -> "こんにちは, " + name + "! お会いできて光栄です!";
+//            case "fr" -> "Bonjour, " + name + "! Ravi de vous rencontrer!";
+//            case "de" -> "Hallo, " + name + "! Freut mich, Sie kennenzulernen!";
+//            default -> "Hello, " + name + "! Great to meet you!";
+//        };
+//    }
+//
+//    @Tool(name = "getServerInfo", description = "Get information about this MCP server")
+//    public String getServerInfo() {
+//        return """
+//            Demo MCP Server v1.0.0
+//            ========================
+//            Server Name: demo-mcp-server
+//            Description: A demo MCP server with useful tools for mcp-context-forge
+//            Transport: Streamable HTTP
+//            Available Tools:
+//              - calculator: Evaluate mathematical expressions
+//              - getCurrentTime: Get current server time
+//              - greet: Send a greeting to someone
+//              - getWeather: Get weather for a city
+//              - getServerInfo: Get server information
+//            """;
+//    }
 
     @Tool(name = "getWeather", description = "Get weather information for a city")
     public String getWeather(@ToolParam(description = "City name") String city) {
@@ -68,8 +68,10 @@ public class DemoTools {
         );
         String normalized = city.toLowerCase().trim();
         if (weatherData.containsKey(normalized)) {
+            System.out.println("Weather in " + city + ": " + weatherData.get(normalized));
             return "Weather in " + city + ": " + weatherData.get(normalized);
         }
+        System.out.println("Weather in " + city + ": ☀️ Sunny, 23°C, Humidity: 50% (demo data)");
         return "Weather in " + city + ": ☀️ Sunny, 23°C, Humidity: 50% (demo data)";
     }
 

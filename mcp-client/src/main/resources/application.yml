@@ -5,7 +5,7 @@ spring:
   application:
     name: mcp-client
   profiles:
-    active: home
+    active: msik
 
 ai:
   chat:

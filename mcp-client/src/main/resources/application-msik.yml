@@ -15,3 +15,9 @@ spring:
 ollama:
   baseUrl: http://localhost:11434
   modelName: qwen3.5:4b
+mcp:
+  jwt: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGV4YW1wbGUuY29tIiwiaWF0IjoxNzgwMzg3MzU4LCJpc3MiOiJtY3BnYXRld2F5IiwiYXVkIjoibWNwZ2F0ZXdheS1hcGkiLCJqdGkiOiI5NTJlNjAwOS1mZDBjLTQ3MmMtODdjNS1iMzk2NmVlNTBiNmYiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInVzZXIiOnsiZW1haWwiOiJhZG1pbkBleGFtcGxlLmNvbSIsImZ1bGxfbmFtZSI6IkNMSSBVc2VyIiwiaXNfYWRtaW4iOnRydWUsImF1dGhfcHJvdmlkZXIiOiJjbGkifSwidGVhbXMiOm51bGwsImV4cCI6MzMzMTYzODczNTh9.Ixw9j2tQbAEzDgTFhE06WlCOQJZjPaxPBd3FsQvhd2A
+  streamableHttpUrl: http://172.18.138.69:4444/servers/6a0cd36dbd7d47e0ace1dedcb490af24/mcp
+  seeUrl: http://172.18.138.69:4444/servers/6a0cd36dbd7d47e0ace1dedcb490af24/sse
+  sse-enable: false
+  streamableHttp-enable: true

@@ -24,7 +24,7 @@ public class ChatAgentChatMemoryConfig {
                                 MessageWindowChatMemory.builder()
                                         .id(memoryId)           // 给记忆设置一个ID（可选，便于调试）
                                         .chatMemoryStore(redisChatMemoryStore)
-                                        .maxMessages(10)        // 每个记忆最多保留10条消息
+                                        .maxMessages(20)        // 每个记忆最多保留10条消息
                                         .build()
                         );
         return chatMemoryProvider;

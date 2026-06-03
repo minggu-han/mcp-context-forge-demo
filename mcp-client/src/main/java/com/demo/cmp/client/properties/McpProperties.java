@@ -9,7 +9,9 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "mcp")
 public class McpProperties {
 
-    private String url;
+    private String streamableHttpUrl;
+
+    private String seeUrl;
 
     private String jwt;
 
