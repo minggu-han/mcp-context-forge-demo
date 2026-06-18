@@ -14,13 +14,13 @@ public class ChatAgentAiServiceConfig {
     public ChatAgent chatAgent(ToolProviderFactory toolProviderFactory
                                 , ChatMemoryProvider chatAgentChatMemoryProvider
 //                               , ChatModel ollamaChatModel
-//                                , ChatModel deepseekChatModel
-                                , ChatModel qwenChatModel
+                                , ChatModel deepseekChatModel
+//                                , ChatModel qwenChatModel
     ) {
         return AiServices.builder(ChatAgent.class)
 //                .chatModel(ollamaChatModel)
-//                .chatModel(deepseekChatModel)
-                .chatModel(qwenChatModel)
+                .chatModel(deepseekChatModel)
+//                .chatModel(qwenChatModel)
                 .toolProviders(toolProviderFactory.getToolProviderList())
                 .chatMemoryProvider(chatAgentChatMemoryProvider)
                 .build();

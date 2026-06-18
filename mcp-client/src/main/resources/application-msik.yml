@@ -20,4 +20,4 @@ mcp:
   streamableHttpUrl: http://172.18.138.69:4444/servers/95f710d25f0f48e49fb08fa187a764b1/mcp
   seeUrl: http://172.18.138.69:4444/servers/95f710d25f0f48e49fb08fa187a764b1/sse
   sse-enable: false
-  streamableHttp-enable: true
+  streamableHttp-enable: false
