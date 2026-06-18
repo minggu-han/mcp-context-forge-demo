@@ -89,6 +89,14 @@ public class AuthorizationServerConfig {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
+    /**
+     * client_credentials
+     * Issuer URL --->    http://172.18.138.164:9000
+     * Token URL --->   http://172.18.138.164:9000/oauth2/token
+     * Client ID ---> mcp-server
+     * Client Secret ---> mcp-server-secret
+     * scope---> openid profile mcp:read mcp:write api
+     */
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
         RegisteredClient mcpClient = RegisteredClient.withId(UUID.randomUUID().toString())

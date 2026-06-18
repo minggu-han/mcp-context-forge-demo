@@ -1,0 +1,138 @@
+[
+  {
+    "name": "weather-api",
+    "displayName": "Weather API Tool",
+    "url": "https://api.openweathermap.org/data/2.5/weather",
+    "integration_type": "REST",
+    "request_type": "GET",
+    "description": "Get current weather data for any location",
+    "auth_type": "bearer",
+    "auth_value": "your-openweather-api-key-here",
+    "headers": {
+      "Accept": "application/json",
+      "User-Agent": "ContextForge/1.0"
+    },
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "description": "City name, state code and country code divided by comma"
+        },
+        "units": {
+          "type": "string",
+          "description": "Temperature units",
+          "enum": [
+            "standard",
+            "metric",
+            "imperial"
+          ],
+          "default": "metric"
+        }
+      },
+      "required": [
+        "q"
+      ]
+    },
+    "jsonpath_filter": "$.main",
+    "tags": [
+      "weather",
+      "api",
+      "external"
+    ]
+  },
+  {
+    "name": "user-management",
+    "displayName": "User Management API",
+    "url": "https://api.mycompany.com/v1/users",
+    "integration_type": "REST",
+    "request_type": "POST",
+    "description": "Create new user accounts in the system",
+    "auth_type": "basic",
+    "auth_value": "api-username:api-password",
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "X-API-Version": "1.0"
+    },
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User's email address"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "User's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "User's last name"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "user",
+            "admin"
+          ],
+          "default": "user"
+        },
+        "department": {
+          "type": "string",
+          "description": "User's department"
+        }
+      },
+      "required": [
+        "email",
+        "firstName",
+        "lastName"
+      ]
+    },
+    "tags": [
+      "users",
+      "crud",
+      "internal"
+    ]
+  },
+  {
+    "name": "slack-notify",
+    "displayName": "Slack Notification Tool",
+    "url": "https://hooks.slack.com/services/your/webhook/url",
+    "integration_type": "REST",
+    "request_type": "POST",
+    "description": "Send notifications to Slack channels",
+    "auth_type": "authheaders",
+    "auth_value": "Authorization: Bearer xoxb-your-slack-token",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "channel": {
+          "type": "string",
+          "description": "Slack channel (e.g., #general)"
+        },
+        "text": {
+          "type": "string",
+          "description": "Message text"
+        },
+        "username": {
+          "type": "string",
+          "description": "Bot username",
+          "default": "ContextForge"
+        }
+      },
+      "required": [
+        "text"
+      ]
+    },
+    "tags": [
+      "notifications",
+      "slack",
+      "communication"
+    ]
+  }
+]

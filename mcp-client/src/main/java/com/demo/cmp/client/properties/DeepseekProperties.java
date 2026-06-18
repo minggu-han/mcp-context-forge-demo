@@ -1,4 +1,4 @@
-package com.demo.cmp.client.config;
+package com.demo.cmp.client.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

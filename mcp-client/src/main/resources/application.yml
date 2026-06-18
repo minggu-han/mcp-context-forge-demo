@@ -13,10 +13,12 @@ ai:
       type: redis
 
 deepseek:
-  baseUrl: https://api.deepseek.com/v1
+  baseUrl: https://api.deepseek.com
+#  baseUrl: https://lingsuan.top
   apiKey: sk-485e5c3ba56c461891c4230b8068bbe8
+#  apiKey: sk-215644dd3571137be747c24b2f083268110a8fa20cadf33c3b5f3da8551ca529
   modelName: deepseek-v4-pro
 
 qwen:
-  apiKey: sk-847dff9fa063420399a68d5a2cd1bdc2
+  apiKey: sk-ws-H.RPMILEX.jUpK.MEQCIH4Q5MgVgUksBh3P4P-MQXqPoa7EHv92JtJW4EkYd6NnAiA8-6jZdzYDdCUT0pqnKgm9SDEySP6OusTnj6174LDq-g
   modelName: qwen-plus

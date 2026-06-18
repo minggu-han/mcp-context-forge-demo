@@ -1,6 +1,5 @@
-package com.demo.cmp.client.config.momery;
+package com.demo.cmp.client.momery;
 
-import com.demo.cmp.client.config.memoryStore.RedisChatMemoryStore;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;

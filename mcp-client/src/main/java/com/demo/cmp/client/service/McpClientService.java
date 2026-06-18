@@ -1,4 +1,4 @@
-package com.demo.cmp.client.mcp;
+package com.demo.cmp.client.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

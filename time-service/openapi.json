@@ -1,0 +1,65 @@
+[
+  {
+    "name": "weather-api",
+    "displayName": "Weather API Tool",
+    "url": "https://api.openweathermap.org/data/2.5/weather",
+    "integration_type": "REST",
+    "request_type": "GET",
+    "description": "Get current weather data for any location",
+    "auth_type": "bearer",
+    "auth_value": "your-openweather-api-key-here",
+    "headers": {
+      "Accept": "application/json",
+      "User-Agent": "ContextForge/1.0"
+    },
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "description": "City name, state code and country code divided by comma"
+        },
+        "units": {
+          "type": "string",
+          "description": "Temperature units",
+          "enum": [
+            "standard",
+            "metric",
+            "imperial"
+          ],
+          "default": "metric"
+        }
+      },
+      "required": [
+        "q"
+      ]
+    },
+    "jsonpath_filter": "$.main",
+    "tags": [
+      "weather",
+      "api",
+      "external"
+    ]
+  },
+  {
+    "name": "get-current-time",
+    "displayName": "Get Current Time",
+    "url": "http://172.18.138.164:8000/current-time",
+    "integration_type": "REST",
+    "request_type": "GET",
+    "description": "获取当前 UTC 时间，返回时间戳、日期时间、时区和 ISO 8601 格式",
+    "auth_type": "basic",
+    "auth_value": "admin:admin123",
+    "input_schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "jsonpath_filter": "$",
+    "tags": [
+      "time",
+      "utility",
+      "basic-auth"
+    ]
+  }
+]

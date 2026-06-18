@@ -1,4 +1,4 @@
-package com.demo.cmp.client.config.memoryStore;
+package com.demo.cmp.client.momery;
 
 import dev.langchain4j.data.message.ChatMessage;
 import dev.langchain4j.data.message.ChatMessageDeserializer;

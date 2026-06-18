@@ -9,17 +9,18 @@ services:
     ports:
       - "4444:4444"
     environment:
+      - TRANSPORT_TYPE=streamablehttp
       # PostgreSQL 连接（外部数据库）
       # 格式：postgresql+psycopg://用户名:密码@主机:端口/数据库名
-      - DATABASE_URL=postgresql+psycopg://snowhan:Msi60067710@172.26.80.1:5432/postgres
+      - DATABASE_URL=postgresql+psycopg://mcp:mcp@172.18.1.76:5432/mcp
       
       # Redis 连接（外部缓存）
       # 格式：redis://:密码@主机:端口/数据库编号
-      - REDIS_URL=redis://:YourStrongRedisPassword123@172.26.80.1:6379/0
+      - REDIS_URL=redis://:msikredis1108@10.18.1.174:6379/3
       - CACHE_TYPE=redis
       
       # JWT 认证配置（生产环境请务必使用强密钥）
-      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-your-strong-jwt-secret-key-min-32-chars}
+      - JWT_SECRET_KEY=9qW8xRtY2mNpL5kZ3vB7cX1aF6gH4jM9pL2kR8tY4=
       - JWT_ALGORITHM=HS256
       
       # 强制 JWT 包含 JTI 和过期声明（企业安全要求）
@@ -32,7 +33,8 @@ services:
       # 启用管理界面和管理 API
       - MCPGATEWAY_UI_ENABLED=true
       - MCPGATEWAY_ADMIN_API_ENABLED=true
-      
+      - PLATFORM_ADMIN_EMAIL=admin@example.com
+      - PLATFORM_ADMIN_PASSWORD=changeme
       # 禁用基础认证，仅 JWT
       - API_ALLOW_BASIC_AUTH=true
       
@@ -43,30 +45,40 @@ services:
       - GUNICORN_WORKERS=4
       
       # 日志级别
-      - LOG_LEVEL=info
+      - LOG_LEVEL=DEBUG
       
       # 安全 Cookie（生产环境启用）
-      - SECURE_COOKIES=true
+      - SECURE_COOKIES=false
       
       # CORS 允许的源（按需修改）
       - CORS_ENABLED=true
-      - CORS_ALLOW_ORIGINS=http://localhost:4444,http://localhost:3000
-      
-      - SSRF_ALLOWED_NETWORKS=["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
-      
-      - UVICORN_HOST=0.0.0.0
+
       - HOST=0.0.0.0
       - PLUGINS_ENABLED=true
+      - SSRF_ALLOW_PRIVATE_NETWORKS=true
+      - SSRF_ALLOW_LOCALHOST=true
+      - SSRF_DNS_FAIL_CLOSED=false
       
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
     networks:
-      - mcp-network
+      mcp-network:
+        ipv4_address: 192.168.113.3
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:4444/health"]
+      test: [ "CMD", "curl", "-f", "http://localhost:4444/health" ]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"
 
 networks:
   mcp-network:
-    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.113.0/24

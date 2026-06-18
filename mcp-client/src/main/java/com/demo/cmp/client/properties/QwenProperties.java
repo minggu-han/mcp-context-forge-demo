@@ -1,4 +1,4 @@
-package com.demo.cmp.client.config;
+package com.demo.cmp.client.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -6,11 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "ollama")
-public class OllamaProperties {
-
-    private String baseUrl;
+@ConfigurationProperties(prefix = "qwen")
+public class QwenProperties {
+    private String apiKey;
 
     private String modelName;
-
 }

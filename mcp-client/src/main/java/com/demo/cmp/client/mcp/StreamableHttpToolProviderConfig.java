@@ -1,6 +1,6 @@
-package com.demo.cmp.client.config.mcp;
+package com.demo.cmp.client.mcp;
 
-import com.demo.cmp.client.mcp.McpClientService;
+import com.demo.cmp.client.service.McpClientService;
 import com.demo.cmp.client.properties.McpProperties;
 import dev.langchain4j.agent.tool.ToolSpecification;
 import dev.langchain4j.model.chat.request.json.JsonArraySchema;

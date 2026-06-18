@@ -1,6 +1,6 @@
-package com.demo.cmp.client.config.chatModel;
+package com.demo.cmp.client.model;
 
-import com.demo.cmp.client.config.QwenProperties;
+import com.demo.cmp.client.properties.QwenProperties;
 import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

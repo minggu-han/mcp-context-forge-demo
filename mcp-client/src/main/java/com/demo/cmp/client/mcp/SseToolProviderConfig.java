@@ -1,4 +1,4 @@
-package com.demo.cmp.client.config.mcp;
+package com.demo.cmp.client.mcp;
 
 import com.demo.cmp.client.properties.McpProperties;
 import dev.langchain4j.mcp.McpToolProvider;
